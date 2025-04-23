@@ -84,13 +84,15 @@ const VistaPago = () => {
             <button
               onClick={() => {
                 const imageWindow = window.open("", "_blank");
-            if (imageWindow) {
-             imageWindow.document.write(
-              `<img src="http://localhost:3000/imagenes/${vehiculo.imagen}" style="width: 100%; height: auto;" />`
-                );
-              } else {
-                console.error("No se pudo abrir una nueva ventana. ¿Bloqueador de popups?");
+                if (imageWindow) {
+                  imageWindow.document.write(
+                    `<img src="http://localhost:3000/imagenes/${vehiculo.imagen}" style="width: 100%; height: auto;" />`
+                  );
+                } else {
+                  console.error("No se pudo abrir la ventana");
+                }
               }}
+              
               className="absolute bottom-2 right-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition"
               title="Ver imagen en pantalla completa"
             >
